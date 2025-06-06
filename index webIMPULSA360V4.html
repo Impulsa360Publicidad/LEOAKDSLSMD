@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMPULSA360 - Marketing Digital Sostenible</title>
+  <meta name="description" content="Agencia de marketing digital eco-friendly que genera ventas mientras reduce emisiones de carbono. Estrategias responsables con resultados medibles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --primary: #112c36;
+      --primary-light: #c7e6c7;
+      --secondary: #FFC107;
+      --dark: #345a2c;
+      --light: #F5F7FA;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    
+    /* Animaciones personalizadas */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 0 0 rgba(46, 139, 87, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(46, 139, 87, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(46, 139, 87, 0); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes loading {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 8rem 1rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>');
+      background-size: cover;
+      background-position: bottom;
+      z-index: 1;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      width: 380px;
+      margin-bottom: 2rem;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    }
+    
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      line-height: 1.2;
+    }
+    
+    .tagline {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: var(--dark);
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      transition: var(--transition);
+      animation: pulse-green 2s infinite;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--box-shadow);
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255,255,255,0.2);
+      transform: rotate(30deg);
+      transition: all 0.6s ease-in-out;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      background-color: #ffd54f;
+    }
+    
+    .cta-button:hover::after {
+      left: 100%;
+    }
+    
+    /* Secciones */
+    section {
+      padding: 7rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      display: inline-block;
+      padding-bottom: 15px;
+      position: relative;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    
+    .section-title h2::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    
+    /* About Section */
+    .about-section {
+      background-color: white;
+      border-radius: 20px;
+      padding: 4rem;
+      box-shadow: var(--box-shadow);
+      margin-top: 3rem;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    
+    .about-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: var(--transition);
+      border-top: 5px solid var(--primary);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .about-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), rgba(76, 175, 80, 0.1));
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+      border-radius: inherit;
+    }
+    
+    .about-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .about-card:hover::after {
+      opacity: 1;
+    }
+    
+    .about-card h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    
+    .about-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), rgba(76, 175, 80, 0.1));
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    
+    /* Mision Vision Section */
+    #mision-vision {
+      padding: 6rem 1rem;
+    }
+    
+    .mv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    
+    .mv-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .mv-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.05), rgba(76, 175, 80, 0.05));
+      z-index: -1;
+    }
+    
+    .mv-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), rgba(76, 175, 80, 0.1));
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+      border-radius: inherit;
+    }
+    
+    .mv-card-mision {
+      border-top: 5px solid #4CAF50;
+      animation-delay: 0.2s;
+    }
+    
+    .mv-card-vision {
+      border-top: 5px solid #FFC107;
+      animation-delay: 0.4s;
+    }
+    
+    .mv-card-objetivos {
+      border-top: 5px solid #2196F3;
+      animation-delay: 0.6s;
+    }
+    
+    .mv-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .mv-card-mision .mv-icon {
+      color: #4CAF50;
+    }
+    
+    .mv-card-vision .mv-icon {
+      color: #FFC107;
+    }
+    
+    .mv-card-objetivos .mv-icon {
+      color: #2196F3;
+    }
+    
+    .mv-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+    
+    .mv-card p, .mv-card ul {
+      color: #555;
+      text-align: left;
+    }
+    
+    .mv-card ul {
+      padding-left: 20px;
+    }
+    
+    .mv-card li {
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+    
+    .mv-card li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    
+    .mv-card:hover::after {
+      opacity: 1;
+    }
+    
+    /* Valores */
+    .values-section {
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.03), rgba(76, 175, 80, 0.03));
+      border-radius: 20px;
+      padding: 4rem;
+      margin-top: 3rem;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    
+    .value-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .value-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), rgba(76, 175, 80, 0.1));
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+      border-radius: inherit;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-color: var(--primary);
+    }
+    
+    .value-card:hover::after {
+      opacity: 1;
+    }
+    
+    .value-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .value-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+    
+    /* Servicios */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 15px;
+      padding: 3rem 2.5rem;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--primary-light));
+    }
+    
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), rgba(76, 175, 80, 0.1));
+      opacity: 0;
+      transition: var(--transition);
+      z-index: -1;
+      border-radius: inherit;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    
+    .service-card:hover::after {
+      opacity: 1;
+    }
+    
+    .service-icon {
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    
+    .service-card h3 {
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .service-card p {
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    
+    .service-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+    
+    .service-link i {
+      margin-left: 5px;
+      transition: var(--transition);
+    }
+    
+    .service-link:hover {
+      color: var(--primary-light);
+    }
+    
+    .service-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Proceso */
+    .process-section {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 6rem 2rem;
+      margin: 5rem 0;
+      clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+    }
+    
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .process-title {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+    
+    .process-title h2 {
+      color: white;
+      font-size: 2.5rem;
+    }
+    
+    .process-title h2::after {
+      background: white;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .process-step {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 15px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .process-step:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: white;
+      color: var(--primary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+    }
+    
+    .process-step h3 {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    
+    /* Testimonios */
+    .testimonials-section {
+      background-color: #f9f9f9;
+      padding: 6rem 2rem;
+      margin: 5rem 0;
+    }
+    
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2.5rem;
+      box-shadow: var(--box-shadow);
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    /* Contacto */
+    .contact-section {
+      background-color: white;
+      border-radius: 20px;
+      padding: 4rem;
+      box-shadow: var(--box-shadow);
+      margin-top: 2rem;
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .contact-method:nth-child(1) { transition-delay: 0.1s; }
+    .contact-method:nth-child(2) { transition-delay: 0.2s; }
+    .contact-method:nth-child(3) { transition-delay: 0.3s; }
+    .contact-method:nth-child(4) { transition-delay: 0.4s; }
+    
+    .contact-info.active .contact-method {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .contact-method:hover {
+      transform: translateX(10px);
+    }
+    
+    .modern-icon {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .modern-icon::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .contact-method:hover .modern-icon {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 12px 30px rgba(46, 139, 87, 0.4);
+    }
+    
+    .contact-method:hover .modern-icon::before {
+      left: 100%;
+    }
+    
+    .contact-text h3 {
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+    
+    .contact-text a, .contact-text p {
+      color: var(--dark);
+      text-decoration: none;
+      transition: var(--transition);
+      display: block;
+    }
+    
+    .contact-text a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      transition: var(--transition);
+      background-color: #f9f9f9;
+      font-size: 1rem;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+      background-color: white;
+    }
+    
+    textarea.form-control {
+      min-height: 180px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 18px 35px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: var(--transition);
+      width: 100%;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 20px rgba(46, 139, 87, 0.3);
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(46, 139, 87, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    .submit-btn.loading {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary));
+      background-size: 200% 200%;
+      animation: loading 2s ease infinite;
+      pointer-events: none;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-logo {
+      width: 150px;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: var(--transition);
+    }
+    
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+      
+      .about-section, .values-section, .contact-section {
+        padding: 2rem;
+      }
+      
+      .process-step {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <!-- Ruta absoluta para el logo en el encabezado -->
+      <img src="C:\Users\aceve\Downloads\impulsav4\logo impulsa360.png" alt="IMPULSA360 Logo" class="logo">
+      <h1>Marketing Digital Sostenible</h1>
+      <p class="tagline">Generamos resultados mientras reducimos nuestra huella de carbono. Estrategias digitales responsables con el medio ambiente.</p>
+      <a href="#contacto" class="cta-button">Contacta con nosotros</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-title">
+      <h2>Sobre Nosotros</h2>
+    </div>
+    <p class="section-subtitle">Somos una agencia de marketing digital comprometida con la sostenibilidad y la generación de resultados medibles para tu negocio.</p>
+    
+    <div class="about-section">
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sostenibilidad</h3>
+          <p>Implementamos estrategias digitales que reducen el consumo energético y las emisiones de CO2, utilizando tecnologías limpias y compensando nuestra huella ecológica.</p>
+        </div>
+        
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Resultados</h3>
+          <p>Nuestras campañas están diseñadas para maximizar el ROI mientras minimizamos el impacto ambiental, demostrando que rentabilidad y sostenibilidad pueden ir de la mano.</p>
+        </div>
+        
+        <div class="about-card">
+          <div class="about-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovación</h3>
+          <p>Utilizamos las últimas tecnologías en marketing digital combinadas con prácticas eco-friendly para ofrecer soluciones vanguardistas y responsables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mision-vision">
+    <div class="section-title">
+      <h2>Nuestra Esencia</h2>
+    </div>
+    
+    <div class="mv-grid">
+      <div class="mv-card mv-card-mision">
+        <div class="mv-icon">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <h3>Misión</h3>
+        <p>Impulsar el crecimiento digital de negocios mediante estrategias de marketing sostenibles que generen resultados tangibles mientras reducimos nuestra huella de carbono y promovemos prácticas eco-friendly en la industria.</p>
+      </div>
+      
+      <div class="mv-card mv-card-vision">
+        <div class="mv-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        <h3>Visión</h3>
+        <p>Ser la agencia líder en marketing digital sostenible para 2025, transformando la industria hacia prácticas más responsables con el medio ambiente y demostrando que la rentabilidad y la sostenibilidad pueden ir de la mano.</p>
+      </div>
+      
+      <div class="mv-card mv-card-objetivos">
+        <div class="mv-icon">
+          <i class="fas fa-flag-checkered"></i>
+        </div>
+        <h3>Objetivos</h3>
+        <ul>
+          <li>Reducir emisiones de carbono en un 30% para 2024</li>
+          <li>Implementar servidores eco-friendly para 2023</li>
+          <li>Educar a 500 empresas en marketing sostenible</li>
+          <li>Compensar el 100% de nuestra huella digital</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="valores">
+    <div class="section-title">
+      <h2>Nuestros Valores</h2>
+    </div>
+    <p class="section-subtitle">Creamos estrategias que venden y generan impacto positivo. Cada campaña incluye:
+        ✔ Compensación de huella de carbono.
+        ✔ Uso de herramientas digitales eco-friendly.
+        ✔ Transparencia en métricas sociales y ambientales.
+        
+        RESULTADOS REALES, NO PROMESAS
+        Nos obsesionamos con tu crecimiento:
+        ✔ Reportes claros sin jargon técnico.
+        ✔ Enfoque en ROI (cada peso invertido tiene un porqué).
+        ✔ Adaptabilidad: ajustamos estrategias en tiempo real.</p>
+    
+    <div class="values-section">
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-globe-europe"></i>
+          </div>
+          <h3>Sostenibilidad</h3>
+          <p>Priorizamos el impacto ambiental en cada decisión, buscando siempre las soluciones más ecológicas.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h3>Responsabilidad</h3>
+          <p>Nos hacemos cargo del impacto de nuestras acciones y compensamos nuestra huella ecológica.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Transparencia</h3>
+          <p>Reportamos con honestidad nuestros resultados y nuestro impacto ambiental.</p>
+        </div>
+        
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Innovación</h3>
+          <p>Buscamos constantemente nuevas formas de combinar efectividad con sostenibilidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="section-title">
+      <h2>Nuestros Servicios</h2>
+    </div>
+    <p class="section-subtitle">Soluciones de marketing digital diseñadas para generar resultados mientras cuidamos el planeta.</p>
+    
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-search-dollar"></i>
+        </div>
+        <h3>SEO Sostenible</h3>
+        <p>Optimizamos tu sitio web para motores de búsqueda utilizando servidores verdes y estrategias de bajo consumo energético.</p>
+        <a href="#" class="service-link">Saber más <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-ad"></i>
+        </div>
+        <h3>Publicidad Eco-Friendly</h3>
+        <p>Campañas digitales con compensación de carbono y selección de plataformas con compromiso ambiental.</p>
+        <a href="#" class="service-link">Saber más <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <h3>Email Marketing Responsable</h3>
+        <p>Estrategias de email marketing con servidores verdes y optimización para reducir el impacto ambiental.</p>
+        <a href="#" class="service-link">Saber más <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="process-container">
+      <div class="process-title">
+        <h2>Nuestro Proceso</h2>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h3>Análisis</h3>
+          <p>Evaluamos tus necesidades y medimos tu huella digital actual.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h3>Estrategia</h3>
+          <p>Creamos un plan personalizado que combine resultados y sostenibilidad.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h3>Implementación</h3>
+          <p>Ejecutamos las acciones utilizando tecnologías limpias.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h3>Medición</h3>
+          <p>Reportamos resultados comerciales y reducción de impacto ambiental.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios" class="testimonials-section">
+    <div class="testimonials-container">
+      <div class="section-title">
+        <h2>Testimonios</h2>
+      </div>
+      <p class="section-subtitle">Lo que dicen nuestros clientes sobre nuestro trabajo.</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>"IMPULSA360 no solo aumentó nuestras ventas en un 40%, sino que también nos ayudó a reducir nuestra huella de carbono digital. ¡Increíble combinación!"</p>
+          <div class="testimonial-author">
+            <h4>Carlos Méndez</h4>
+            <p>CEO, EcoTienda</p>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p>"Finalmente encontramos una agencia que entiende que el crecimiento y la sostenibilidad no son excluyentes. Los resultados hablan por sí solos."</p>
+          <div class="testimonial-author">
+            <h4>Ana Rodríguez</h4>
+            <p>Directora de Marketing, VerdeCampo</p>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <p>"Su enfoque de marketing sostenible ha sido un diferenciador clave para nuestra marca. Hemos visto mejoras significativas en nuestro engagement y percepción de marca."</p>
+          <div class="testimonial-author">
+            <h4>Javier López</h4>
+            <p>Director Comercial, NaturCosméticos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-title">
+      <h2>Contacto</h2>
+    </div>
+    <p class="section-subtitle">¿Listo para impulsar tu negocio de manera sostenible? Escríbenos.</p>
+    
+    <div class="contact-section">
+      <div class="contact-info">
+        <div class="contact-method">
+          <div class="modern-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Teléfono</h3>
+            <a href="tel:+573002431691">+57 300 2431691</a>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="modern-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Email</h3>
+            <a href="mailto:impulsa360publicidad@gmail.com">impulsa360publicidad@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="modern-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Ubicación</h3>
+            <p>Segovia, Antioquia, Colombia</p>
+          </div>
+        </div>
+        
+        <div class="contact-method">
+          <div class="modern-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Horario</h3>
+            <p>Lun-Vie: 8am - 6pm</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Asunto</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" class="form-control" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <!-- Ruta absoluta para el logo en el footer -->
+      <img src="C:\Users\aceve\Downloads\impulsav4\logo impulsa360.png" alt="IMPULSA360 Logo" class="footer-logo">
+      
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      
+      <div class="footer-links">
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#valores">Valores</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos de Servicio</a>
+      </div>
+      
+      <p class="copyright">© 2023 IMPULSA360. Todos los derechos reservados. Marketing Digital Sostenible.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animación al hacer scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      // Elementos a observar
+      document.querySelectorAll('.mv-card, .contact-info, .values-grid .value-card').forEach(el => {
+        observer.observe(el);
+      });
+      
+      // Animación para el logo
+      gsap.from(".logo", {
+        duration: 1.5,
+        y: -50,
+        opacity: 0,
+        ease: "bounce.out"
+      });
+      
+      // Animación para el título y subtítulo
+      gsap.from("h1", {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        delay: 0.5,
+        ease: "power3.out"
+      });
+      
+      gsap.from(".tagline", {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        delay: 0.8,
+        ease: "power3.out"
+      });
+      
+      // Animación para el botón CTA
+      gsap.from(".cta-button", {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        delay: 1.1,
+        ease: "power3.out"
+      });
+      
+      // Animación de las tarjetas de servicios
+      gsap.utils.toArray(".service-card").forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%"
+          },
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          delay: i * 0.1,
+          ease: "power2.out"
+        });
+      });
+      
+      // Formulario de contacto
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const submitBtn = this.querySelector('.submit-btn');
+          submitBtn.classList.add('loading');
+          submitBtn.textContent = 'Enviando...';
+          
+          // Simulación de envío
+          setTimeout(() => {
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Mensaje Enviado ✓';
+            submitBtn.style.backgroundColor = '#4CAF50';
+            contactForm.reset();
+            
+            setTimeout(() => {
+              submitBtn.textContent = 'Enviar Mensaje';
+              submitBtn.style.backgroundColor = '';
+            }, 3000);
+          }, 2000);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
